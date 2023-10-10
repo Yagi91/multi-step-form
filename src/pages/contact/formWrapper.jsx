@@ -5,7 +5,9 @@ export function FormWrapper({ title, summary, children }) {
     <>
       <h1>{title}</h1>
       <p>{summary}</p>
-      <div>{children}</div>
+      <div className="mt-10 grid gap-y-2 gap-x-4 justify-start grid-cols-1 sm:grid-cols-2">
+        {children}
+      </div>
     </>
   );
 }

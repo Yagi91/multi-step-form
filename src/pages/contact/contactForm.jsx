@@ -22,17 +22,21 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="container">
-      <section>
+    <div className="flex flex-col gap-5">
+      <section className="">
         <Form handleSubmit={handleFormSubmit}>{step}</Form>
       </section>
-      <section>
+      <section className="flex gap-2 justify-end">
         {!isFirstStep && (
           <button disabled={isFirstStep} onClick={prevStep}>
             Previous
           </button>
         )}
-        <button disabled={isLastStep} onClick={nextStep}>
+        <button
+          className="px-8 py-1 bg-red-500 rounded-sm"
+          disabled={isLastStep}
+          onClick={nextStep}
+        >
           Next
         </button>
       </section>

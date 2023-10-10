@@ -32,11 +32,11 @@ const YourProfile = () => {
       summary="Enter the login information for your account. You will be able to create additional users after registering."
     >
       <div className="flex flex-col mb-4">
-        <label className="mb-2" htmlFor="firstName">
-          First Name
+        <label className="mb-2 text-left" htmlFor="firstName">
+          First Name <span>*</span>
         </label>
         <input
-          className="border py-2 px-3 text-grey-darkest"
+          className="border py-2 px-3 text-grey-darkest rounded-md"
           type="text"
           placeholder="First Name"
           id="middleName"
@@ -45,11 +45,11 @@ const YourProfile = () => {
         />
       </div>
       <div className="flex flex-col mb-4">
-        <label className="mb-2" htmlFor="lastName">
-          Last Name
+        <label className="mb-2 text-left" htmlFor="lastName">
+          Last Name <span>*</span>
         </label>
         <input
-          className="border py-2 px-3 text-grey-darkest"
+          className="border py-2 px-3 text-grey-darkest rounded-md"
           type="text"
           placeholder="Last Name"
           id="lastName"
@@ -58,11 +58,11 @@ const YourProfile = () => {
         />
       </div>
       <div className="flex flex-col mb-4">
-        <label className="mb-2" htmlFor="email">
-          Email
+        <label className="mb-2 text-left" htmlFor="email">
+          Email <span>*</span>
         </label>
         <input
-          className="border py-2 px-3 text-grey-darkest"
+          className="border py-2 px-3 text-grey-darkest rounded-md"
           type="email"
           placeholder="Email"
           id="email"
@@ -71,28 +71,41 @@ const YourProfile = () => {
         />
       </div>
       <div className="flex flex-col mb-4">
-        <label className="mb-2" htmlFor="password">
-          Password
+        <label className="mb-2 text-left" htmlFor="phone">
+          Phone <span>*</span>
         </label>
         <input
-          className="border py-2 px-3 text-grey-darkest"
+          className="border py-2 px-3 text-grey-darkest rounded-md"
+          type="tel"
+          placeholder="Phone"
+          id="phone"
+          name="phone"
+          required
+        />
+      </div>
+
+      <div className="flex flex-col mb-4">
+        <label className="mb-2 text-left" htmlFor="password">
+          Password <span>*</span>
+        </label>
+        <input
+          className={`border py-2 px-3 text-grey-darkest rounded-md`}
           type="password"
           placeholder="Password"
           id="password"
           name="password"
           onBlur={validatePassword}
-          pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}"
           required
           onChange={handlePasswordChange}
           value={password}
         />
       </div>
       <div className="flex flex-col mb-4">
-        <label className="mb-2" htmlFor="confirmPassword">
-          Confirm Password
+        <label className="mb-2 text-left" htmlFor="confirmPassword">
+          Confirm Password <span>*</span>
         </label>
         <input
-          className="border py-2 px-3 text-grey-darkest"
+          className="border py-2 px-3 text-grey-darkest rounded-md"
           type="password"
           placeholder="Confirm Password"
           id="confirmPassword"
