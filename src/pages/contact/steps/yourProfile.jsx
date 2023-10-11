@@ -100,16 +100,20 @@ const YourProfile = ({ handleChange, formData, currentStep }) => {
           Password <span>*</span>
         </label>
         <input
-          className={`border py-2 px-3 text-grey-darkest rounded-md`}
+          className={`border py-2 px-3 text-grey-darkest rounded-md focus:outline-blue-500`}
           type="password"
           placeholder="Password"
           id="password"
           name="password"
-          onBlur={validatePassword}
           required
           onChange={handlePasswordChange}
           value={password}
+          pattern=".{8,}"
+          onInvalid={(e) => e.target.setCustomValidity(passwordError)}
         />
+        <span className="text-sm text-left font-sm">
+          Password must be at least 8 characters long
+        </span>
       </div>
       <div className="flex flex-col mb-4">
         <label className="mb-2 text-left" htmlFor="confirmPassword">
@@ -123,10 +127,16 @@ const YourProfile = ({ handleChange, formData, currentStep }) => {
           name="confirmPassword"
           value={confirmPassword}
           onChange={handleConfirmPasswordChange}
-          onBlur={validatePassword}
           required
+          pattern={password}
+          onInvalid={(e) => e.target.setCustomValidity(passwordError)}
+          onInput={() => validatePassword()}
         />
-        {passwordError && <span className="text-red-500">{passwordError}</span>}
+        {passwordError === "Passwords do not match" && (
+          <span className="text-sm text-right font-sm text-red-500">
+            {passwordError}
+          </span>
+        )}
       </div>
     </FormWrapper>
   );
