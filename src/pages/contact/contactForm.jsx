@@ -41,7 +41,13 @@ const ContactForm = () => {
     <div className="flex flex-col gap-5">
       <section className="">
         <Form handleSubmit={newHandleSubmit}>
-          {<Step formData={formData} handleChange={handleChange} />}
+          {
+            <Step
+              formData={formData}
+              currentStep={currentStep + 1}
+              handleChange={handleChange}
+            />
+          }
         </Form>
       </section>
       <section className="flex gap-2 justify-end">

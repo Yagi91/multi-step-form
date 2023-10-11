@@ -1,11 +1,12 @@
 import PropTypes from "prop-types";
 import { FormWrapper } from "../formWrapper";
 
-const BusinessInfo = ({ handleChange, formData }) => {
+const BusinessInfo = ({ handleChange, formData, currentStep }) => {
   return (
     <FormWrapper
       title="Business Information"
       summary="Please enter your Business Information"
+      currentStep={currentStep}
     >
       <h2>General Information</h2>
       <div></div>
@@ -110,6 +111,7 @@ const BusinessInfo = ({ handleChange, formData }) => {
 BusinessInfo.propTypes = {
   formData: PropTypes.object.isRequired,
   handleChange: PropTypes.func.isRequired,
+  currentStep: PropTypes.number.isRequired,
 };
 
 export default BusinessInfo;

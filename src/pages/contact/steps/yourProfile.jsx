@@ -3,7 +3,7 @@ import { FormWrapper } from "../formWrapper";
 
 import PropTypes from "prop-types";
 
-const YourProfile = ({ handleChange, formData }) => {
+const YourProfile = ({ handleChange, formData, currentStep }) => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [passwordError, setPasswordError] = useState("");
@@ -31,6 +31,7 @@ const YourProfile = ({ handleChange, formData }) => {
     <FormWrapper
       title="Your Profile"
       summary="Enter the login information for your account. You will be able to create additional users after registering."
+      currentStep={currentStep}
     >
       <div className="flex flex-col mb-4">
         <label className="mb-2 text-left" htmlFor="firstName">
@@ -134,6 +135,7 @@ const YourProfile = ({ handleChange, formData }) => {
 YourProfile.propTypes = {
   formData: PropTypes.object.isRequired,
   handleChange: PropTypes.func.isRequired,
+  currentStep: PropTypes.number.isRequired,
 };
 
 export default YourProfile;
