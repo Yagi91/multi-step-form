@@ -31,7 +31,13 @@ export function useMultiStepForm(steps) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    submitForm();
+    console.log("first check");
+    if (isLastStep()) {
+      submitForm();
+      console.log("second check");
+      return;
+    }
+    nextStep();
   };
 
   const isLastStep = () => {

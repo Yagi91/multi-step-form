@@ -45,6 +45,7 @@ const YourProfile = ({ handleChange, formData }) => {
           required
           onChange={handleChange}
           value={formData.firstName}
+          autoFocus
         />
       </div>
       <div className="flex flex-col mb-4">

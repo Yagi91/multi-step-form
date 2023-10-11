@@ -7,31 +7,40 @@ const ContactForm = () => {
   const { getFormProps, getNavigationProps, getStepProps } =
     useMultiStepForm(steps);
 
-  const { handleSubmit, formData, handleChange, isSubmitted } = getFormProps();
+  const { formData, handleChange, isSubmitted } = getFormProps();
   const { currentStep, nextStep, prevStep, submitForm, resetForm } =
     getNavigationProps();
-  const { isFirstStep, isLastStep, step } = getStepProps();
-
-  console.log(currentStep, isFirstStep, isLastStep);
-  const handleFormSubmit = (data) => {
-    console.log(data);
-  };
+  const { isFirstStep, isLastStep } = getStepProps();
 
   if (isSubmitted) {
     return (
       <div>
         <h1>Thank you for submitting the form!</h1>
-        <button onClick={resetForm}>Start Over</button>
+        <button
+          onClick={resetForm}
+          className="mt-3 px-8 py-1 bg-red-500 rounded-sm cursor-pointer"
+        >
+          Start Over
+        </button>
       </div>
     );
   }
+
+  const newHandleSubmit = (e) => {
+    e.preventDefault();
+    if (isLastStep) {
+      submitForm();
+    } else {
+      nextStep();
+    }
+  };
 
   const Step = steps[currentStep];
   console.log(formData);
   return (
     <div className="flex flex-col gap-5">
       <section className="">
-        <Form handleSubmit={handleFormSubmit}>
+        <Form handleSubmit={newHandleSubmit}>
           {<Step formData={formData} handleChange={handleChange} />}
         </Form>
       </section>
@@ -47,7 +56,8 @@ const ContactForm = () => {
         )}
         <button
           className="px-8 py-1 bg-red-500 rounded-sm cursor-pointer"
-          onClick={isLastStep ? submitForm : nextStep}
+          type="submit"
+          form="multi-step-form"
         >
           {isLastStep ? "Submit" : "Next"}
         </button>

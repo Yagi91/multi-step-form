@@ -22,6 +22,7 @@ const BusinessInfo = ({ handleChange, formData }) => {
           required
           onChange={handleChange}
           value={formData.businessName}
+          autoFocus
         />
       </div>
       <div className="flex flex-col mb-4">
