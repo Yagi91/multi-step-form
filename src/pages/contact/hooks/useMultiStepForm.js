@@ -14,6 +14,7 @@ export function useMultiStepForm(steps) {
   };
 
   const submitForm = () => {
+    console.log("Form data", formData);
     setIsSubmitted(true);
   };
 

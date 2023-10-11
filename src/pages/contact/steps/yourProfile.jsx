@@ -1,15 +1,16 @@
-import PropTypes from "prop-types";
-
 import { useState } from "react";
 import { FormWrapper } from "../formWrapper";
 
-const YourProfile = () => {
+import PropTypes from "prop-types";
+
+const YourProfile = ({ handleChange, formData }) => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [passwordError, setPasswordError] = useState("");
 
   const handlePasswordChange = (event) => {
     setPassword(event.target.value);
+    handleChange(event);
   };
 
   const handleConfirmPasswordChange = (event) => {
@@ -42,6 +43,8 @@ const YourProfile = () => {
           id="middleName"
           name="firstName"
           required
+          onChange={handleChange}
+          value={formData.firstName}
         />
       </div>
       <div className="flex flex-col mb-4">
@@ -55,6 +58,8 @@ const YourProfile = () => {
           id="lastName"
           name="lastName"
           required
+          onChange={handleChange}
+          value={formData.lastName}
         />
       </div>
       <div className="flex flex-col mb-4">
@@ -68,6 +73,8 @@ const YourProfile = () => {
           id="email"
           name="email"
           required
+          onChange={handleChange}
+          value={formData.email}
         />
       </div>
       <div className="flex flex-col mb-4">
@@ -81,6 +88,8 @@ const YourProfile = () => {
           id="phone"
           name="phone"
           required
+          onChange={handleChange}
+          value={formData.phone}
         />
       </div>
 
@@ -123,6 +132,7 @@ const YourProfile = () => {
 
 YourProfile.propTypes = {
   formData: PropTypes.object.isRequired,
+  handleChange: PropTypes.func.isRequired,
 };
 
 export default YourProfile;
