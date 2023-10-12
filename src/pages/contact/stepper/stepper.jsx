@@ -2,11 +2,19 @@
 
 import PropTypes from "prop-types";
 
+/**
+ * Stepper component to display progress of multi-step form
+ * @param {Object} props - Component props
+ * @param {number} props.currentStep - Current step of the form
+ * @returns {JSX.Element} - Stepper component JSX.Element
+ */
 const Stepper = ({ currentStep }) => {
+  // Array of steps in the form
   const steps = ["Your Profile", "Business Info", "Complete"];
 
   return (
     <div className="flex justify-between relative width-full height-[40px]">
+      {/* Progress bar */}
       <div
         className={`progress rounded-tl-md absolute h-full transition-all bg-gradient-to-r from-[#242424] bg-gradient-to-r from-white to-red-500 to-red-500`}
         style={{
@@ -15,6 +23,7 @@ const Stepper = ({ currentStep }) => {
           })`,
         }}
       ></div>
+      {/* Step indicators */}
       {steps?.map((step, index) => (
         <div
           key={index}

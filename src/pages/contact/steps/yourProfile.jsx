@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { FormWrapper } from "../formWrapper";
 
+// This component is used to render the Your Profile form step
 import PropTypes from "prop-types";
 
 const YourProfile = ({ handleChange, formData, currentStep }) => {
@@ -17,6 +18,7 @@ const YourProfile = ({ handleChange, formData, currentStep }) => {
     setConfirmPassword(event.target.value);
   };
 
+  // Check if passwords match and are at least 8 characters long
   const validatePassword = () => {
     if (password !== confirmPassword) {
       setPasswordError("Passwords do not match");
@@ -92,6 +94,7 @@ const YourProfile = ({ handleChange, formData, currentStep }) => {
           required
           onChange={handleChange}
           value={formData.phone}
+          pattern="[0-9+\-]" // Only allow numbers, +, and -
         />
       </div>
 
@@ -108,7 +111,7 @@ const YourProfile = ({ handleChange, formData, currentStep }) => {
           required
           onChange={handlePasswordChange}
           value={password}
-          pattern=".{8,}"
+          pattern=".{8,}" // Minimum 8 characters
           onInvalid={(e) => e.target.setCustomValidity(passwordError)}
         />
         <span className="text-sm text-left font-sm">
@@ -129,8 +132,8 @@ const YourProfile = ({ handleChange, formData, currentStep }) => {
           onChange={handleConfirmPasswordChange}
           required
           pattern={password}
-          onInvalid={(e) => e.target.setCustomValidity(passwordError)}
-          onBlur={validatePassword}
+          onInvalid={(e) => e.target.setCustomValidity(passwordError)} // Set custom validation message
+          onBlur={validatePassword} // Validate on blur
         />
         {passwordError === "Passwords do not match" && (
           <span className="text-sm text-right font-sm text-red-500">

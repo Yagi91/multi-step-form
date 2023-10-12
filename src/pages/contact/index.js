@@ -1,1 +1,1 @@
-export {default as Contact} from './contactForm.jsx';
+export { default as RegistrationForm } from "./registrationForm.jsx";
