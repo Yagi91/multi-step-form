@@ -40,10 +40,35 @@ h1 {
   content: "";
   height: 0;
   width: 0;
-  border-top: 1.5rem solid transparent;
-  border-bottom: 1.5rem solid transparent;
+  border-top: 1.8rem solid transparent;
+  border-bottom: 1.9rem solid transparent;
   position: absolute;
   right: -20px;
   top: 0;
   border-left: 20px solid #ef4444;
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Apply the animation to an element */
+.slide-in-right {
+  animation-name: slideInRight;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+  visibility: hidden;
+}
+
+/* Show the element after the animation has completed */
+.slide-in-right.visible {
+  visibility: visible;
 }

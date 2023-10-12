@@ -6,7 +6,7 @@ export const Form = ({ children, handleSubmit, currentStep }) => {
     <form
       id="multi-step-form"
       onSubmit={handleSubmit}
-      className="container relative rounded-md max-w-[1200px] px-7 py-12 flex flex-col gap-2 justify-center items-center bg-white bg-opacity-20 backdrop-filter backdrop-blur-lg rounded-lg shadow-lg"
+      className="container overflow-hidden relative rounded-md md:min-w-[800px] px-7 py-16 flex flex-col gap-2 justify-center items-center bg-white bg-opacity-20 backdrop-filter backdrop-blur-lg rounded-lg shadow-lg"
     >
       <div className="w-full absolute top-0">
         <Stepper currentStep={currentStep + 1} />
