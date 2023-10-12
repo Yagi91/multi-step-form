@@ -5,8 +5,6 @@ import PropTypes from "prop-types";
 const Stepper = ({ currentStep }) => {
   const steps = ["Your Profile", "Business Info", "Complete"];
 
-  console.log(currentStep);
-
   return (
     <div className="flex justify-between relative width-full height-[40px]">
       <div

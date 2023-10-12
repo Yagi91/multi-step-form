@@ -130,7 +130,7 @@ const YourProfile = ({ handleChange, formData, currentStep }) => {
           required
           pattern={password}
           onInvalid={(e) => e.target.setCustomValidity(passwordError)}
-          onInput={() => validatePassword()}
+          onBlur={validatePassword}
         />
         {passwordError === "Passwords do not match" && (
           <span className="text-sm text-right font-sm text-red-500">
