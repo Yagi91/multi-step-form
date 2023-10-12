@@ -16,6 +16,6 @@ export function FormWrapper({ title, summary, children, currentStep }) {
 FormWrapper.propTypes = {
   title: PropTypes.string.isRequired,
   summary: PropTypes.string.isRequired,
-  children: PropTypes.node.isRequired,
   currentStep: PropTypes.number.isRequired,
+  children: PropTypes.node,
 };

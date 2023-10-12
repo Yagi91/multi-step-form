@@ -36,11 +36,10 @@ const ContactForm = () => {
   };
 
   const Step = steps[currentStep];
-  console.log(formData);
   return (
     <div className="flex flex-col gap-5">
       <section className="">
-        <Form handleSubmit={newHandleSubmit}>
+        <Form handleSubmit={newHandleSubmit} currentStep={currentStep}>
           {
             <Step
               formData={formData}
