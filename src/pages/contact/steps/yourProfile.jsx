@@ -94,7 +94,7 @@ const YourProfile = ({ handleChange, formData, currentStep }) => {
           required
           onChange={handleChange}
           value={formData.phone}
-          pattern="[0-9+\-]" // Only allow numbers, +, and -
+          onInvalid={(e) => e.target.setCustomValidity("Numbers Only")}
         />
       </div>
 

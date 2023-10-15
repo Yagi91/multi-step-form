@@ -100,7 +100,6 @@ const BusinessInfo = ({ handleChange, formData, currentStep }) => {
           required
           onChange={handleChange}
           value={formData.businessZip}
-          pattern="[0-9+\-]" // Only allow numbers and dashes
         />
       </div>
       {/* Tax ID Number */}
@@ -117,7 +116,6 @@ const BusinessInfo = ({ handleChange, formData, currentStep }) => {
           required
           onChange={handleChange}
           value={formData.taxId}
-          pattern="[0-9+\-]"
         />
       </div>
     </FormWrapper>
